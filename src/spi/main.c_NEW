@@ -1,0 +1,17 @@
+#include <stdint.h>
+#include <stdio.h>
+#include "io.h"
+
+#define LED_PIN 5
+
+// Main
+void main(void){
+	// Config LED
+	PB_DDR |= (1<<LED_PIN);
+	PB_CR1 |= (1<<LED_PIN);
+
+	while (1) {
+		outputflip(PB_ODR, LED_PIN);
+		delay_ms(500);
+	}
+}
